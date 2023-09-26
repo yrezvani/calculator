@@ -1,0 +1,18 @@
+#cal-container {
+    width: 450px;
+    height: 650px;
+    border: solid black;
+}
+
+#screen {
+    width: 450px;
+    height: 200px;
+    border: solid black 
+}
+.buttons {
+  width: 100px;  
+  height: 100px;
+  font-size: 30px;
+  margin-bottom: 5px;
+  
+}
