@@ -1,6 +1,6 @@
-let firstNum = prompt ('Enter first number');
-let secondNum = prompt ('Enter second number');
-let operator = prompt ('Enter operator');
+let firstNum;
+let secondNum;
+let operator;
 
 
 const add = function (a, b) {
@@ -26,4 +26,4 @@ const operate = function (operator) {
     if (operator === '/') return divide (Number(firstNum), Number(secondNum));
 }
 
-console.log(operate (operator));
+

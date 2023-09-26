@@ -1,18 +1,44 @@
+body {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+}
 #cal-container {
-    width: 450px;
+    width: 470px;
     height: 650px;
     border: solid black;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0;
+    background-color: rgb(146, 145, 145);
+    
 }
 
 #screen {
-    width: 450px;
-    height: 200px;
-    border: solid black 
+    width: 420px;
+    height: 120px;
+    border: solid black;
+    margin-top: 25px;
+    background-color: black;
+}
+
+.buttons-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+    justify-content: center;
+
+    
 }
 .buttons {
+  background-color: black;
   width: 100px;  
   height: 100px;
   font-size: 30px;
-  margin-bottom: 5px;
+  margin: 5px;
+  color: white
+  
+
   
 }
