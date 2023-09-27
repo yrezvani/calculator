@@ -27,46 +27,59 @@ const operate = function (operator) {
 }
 
 const nums = document.querySelectorAll('.numbers');
-const scrnTxt = document.querySelector('#screen-text');
-
+const result = document.querySelector('#result-bottom');
+const operators = document.querySelectorAll('.operators');
 
 nums.forEach(function (i) {
     i.addEventListener('click', (e) => {
-        if (firstNum == null) {
+        if (operator == null && firstNum == null) {
             firstNum = e.target.textContent;
-            scrnTxt.textContent = firstNum;
-        } else {
+            result.textContent = firstNum;
+        } else if (operator == null && firstNum !== null) {
             firstNum = firstNum + e.target.textContent;
-            scrnTxt.textContent = firstNum;
+            result.textContent = firstNum;
+        } else if (operator !== null && secondNum == null) {
+            secondNum = e.target.textContent;
+            result.textContent = secondNum;
+        } else if (operator !== null && secondNum !== null) {
+            secondNum = secondNum + e.target.textContent;
+            result.textContent = secondNum;  
         }
     });
 });
 
+operators.forEach(function (i) {
+    // nums.forEach(function (i) {
+    //     i.removeEventListener('click', (e) =>{
+    //     });
+    // });
+    // nums.forEach(function (i) {
+    //     i.addEventListener('click', (e) => {
+    //         if (secondNum == null) {
+    //             secondNum = e.target.textContent;
+    //             result.textContent = secondNum;
+    //         } else {
+    //             secondNum = secondNum + e.target.textContent;
+    //             result.textContent = secondNum;
+    //         }
+    //     });
+    // });
+    i.addEventListener('click', (e) => {
+        if (e.target.textContent == '÷') {
+            operator = '/';
+
+        } else if (e.target.textContent == '+') {
+            operator = '+';
+        } else if (e.target.textContent == '×') {
+            operator = '*'
+        } else if (e.target.textContent == '-') {
+            operator = '-'
+        } else {
+            operator = '='
+        }
+    });
+})
 
 
 
-//     addEventListener ("click", (e) => {
-//     console.log(e.target);
-// })
-    // if (firstNum == null) {
-    //     firstNum = e.target.textContent;
-    // } else {
-    //     firstNum = firstNum + e.target.textContent;
-    // }
-// })
 
-// const button7 = document.querySelector('#seven');
-// seven.addEventListener ('click', () => {
-//     if (firstNum == null) {
-//         firstNum = button7.textContent;
-//     } else {
-//         firstNum = firstNum + '7'
-//     }
-// })
-
-    //     if (firstNum = null) {
-//         firstNum = buttons.textContent;
-//     } else {
-//         firstNum = firstNum + buttons.textContent;
-//     }
-// })
