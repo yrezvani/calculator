@@ -1,24 +1,23 @@
 let firstNum;
 let secondNum;
 let operator;
-let currentTotal;
 let oldOp;
 
 
 const add = function (a, b) {
-    return a+b;
+    return Number((a+b).toFixed(5));
 };
 
 const multiply = function (a, b) {
-    return a*b;
+    return Number((a*b).toFixed(5));
 };
 
 const subtract = function (a, b) {
-    return a-b;
+    return Number((a-b).toFixed(5));
 }
 
 const divide = function (a, b) {
-    return a/b;
+    return Number((a/b).toFixed(5));
 }
 
 const operate = function (operator) {
@@ -26,9 +25,6 @@ const operate = function (operator) {
     if (operator === '-') return subtract (Number(firstNum), Number(secondNum));
     if (operator === '×') return multiply (Number(firstNum), Number(secondNum));
     if (operator === '÷') return divide (Number(firstNum), Number(secondNum));
-    // firstNum;
-    // secondNum;
-    // reset = true;
 }
 
 const nums = document.querySelectorAll('.numbers');
@@ -56,37 +52,63 @@ nums.forEach(function (i) {
     });
 });
 
+const divisionByZero = function () {
+        alert('ERROR. You cannot divide by 0');
+        firstNum = null;
+        secondNum = null;
+        resultTop.textContent = null;
+        result.textContent = 0;
+        operator = null;
+}
+
 operators.forEach(function (i) {
     i.addEventListener('click', (e) => {
-        if (e.target.textContent === 'clear') {
+        if (e.target.textContent === 'CLEAR') {
             firstNum = null;
             secondNum = null;
             resultTop.textContent = null;
             result.textContent = '0';
             operator = null;
+        } else if (!firstNum) {
+            return;
+        } else if (e.target.textContent === 'DELETE') {
+            if (!secondNum) {
+                firstNum = Array.from(firstNum);
+                firstNum.pop();
+                firstNum = firstNum.join('');
+                result.textContent = firstNum;
+            } else {
+                secondNum = Array.from(secondNum);
+                secondNum.pop();
+                secondNum = secondNum.join('');
+                result.textContent = secondNum;
+            }
+
         } else {
             if (!secondNum) {
                 operator = e.target.textContent
                 resultTop.textContent = firstNum + operator;
             } else {
-                result.textContent = operate (operator);
-                oldOp = operator;
-                operator = e.target.textContent;
-                if (operator == '=') {
-                    resultTop.textContent = firstNum + oldOp + secondNum + '=';
-                    firstNum = result.textContent
-                    secondNum = null;
+                if (operator === '÷' && secondNum === '0') {
+                    divisionByZero();
                 } else {
-                    resultTop.textContent = result.textContent + operator;
-                    firstNum = result.textContent
-                    secondNum = null;
-                }
+                    result.textContent = operate (operator);
+                    oldOp = operator;
+                    operator = e.target.textContent;
+                    if (operator == '=') {
+                        resultTop.textContent = firstNum + oldOp + secondNum + '=';
+                        firstNum = result.textContent
+                        secondNum = null;
+                    } else {
+                        resultTop.textContent = result.textContent + operator;
+                        firstNum = result.textContent
+                        secondNum = null;
+                    }
+                } 
+                
             }
     
         }
     });
 })
-
-
-
 

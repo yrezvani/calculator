@@ -4,23 +4,26 @@ body {
     justify-content: center;
 }
 #cal-container {
-    width: 470px;
+    width: 400px;
     height: 650px;
     border: solid black;
+    border-radius: 20px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 0;
+    margin-top: 100px;
     background-color: rgb(146, 145, 145);
     
 }
 
 #screen {
-    width: 420px;
+    width: 340px;
     height: 120px;
     border: solid black;
+    border-radius: 5px;
     margin-top: 25px;
     background-color: black;
+    padding-left: 10px;
 }
 
 .buttons-container {
@@ -28,24 +31,39 @@ body {
     flex-wrap: wrap;
     flex: 1;
     justify-content: center;
-
-    
+    margin-bottom: 10px;
 }
 
 button {
   background-color: black;
-  width: 100px;  
-  height: 100px;
-  font-size: 30px;
+  width: 80px;  
+  height: 80px;
+  font-size: 20px;
   margin: 5px;
   color: white
 }
 
-h3 {
-    font-size: 38px;
+#clear,
+#delete {
+  background-color: black;
+  width: 168px;  
+  height: 80px;
+  font-size: 20px;
+  margin: 5px;
+  color: white 
 }
 
-h6 {
-    font-size: 24px;
-    
+
+#result-top {
+    font-size: 18px;
+    padding: 0;
+    margin-top: 30px;
+    height: 30px;
+
+}
+
+#result-bottom {
+    font-size: 28px;
+    padding: 0;
+    margin: 0;
 }
