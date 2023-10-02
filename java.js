@@ -37,18 +37,29 @@ nums.forEach(function (i) {
     i.addEventListener('click', (e) => {
         if (!operator && !firstNum) {
             firstNum = e.target.textContent;
+            if (firstNum === '.') {
+                firstNum = '0.'
+            }
             result.textContent = firstNum;
         } else if (!operator && firstNum) {
+            if (e.target.textContent === '.') {
+                if (Array.from(firstNum).includes ('.')) {
+                    return;
+                } 
+            }
             firstNum = firstNum + e.target.textContent;
             result.textContent = firstNum;
         } else if (operator  && !secondNum) {
             resultTop.textContent = firstNum + operator
             secondNum = e.target.textContent;
+            if (secondNum === '.') {
+                secondNum = '0.'
+            }
             result.textContent = secondNum;
         } else {
             secondNum = secondNum + e.target.textContent;
             result.textContent = secondNum;  
-        }
+        }   
     });
 });
 
@@ -83,7 +94,6 @@ operators.forEach(function (i) {
                 secondNum = secondNum.join('');
                 result.textContent = secondNum;
             }
-
         } else {
             if (!secondNum) {
                 operator = e.target.textContent

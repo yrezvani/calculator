@@ -12,7 +12,7 @@ body {
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 100px;
-    background-color: rgb(146, 145, 145);
+    background-color: rgb(169, 157, 181);
     
 }
 
@@ -22,7 +22,7 @@ body {
     border: solid black;
     border-radius: 5px;
     margin-top: 25px;
-    background-color: black;
+    background-color: white;
     padding-left: 10px;
 }
 
@@ -35,12 +35,12 @@ body {
 }
 
 button {
-  background-color: black;
+  background-color: white;
   width: 80px;  
   height: 80px;
   font-size: 20px;
   margin: 5px;
-  color: white
+  color: black;
 }
 
 #clear,
@@ -66,4 +66,10 @@ button {
     font-size: 28px;
     padding: 0;
     margin: 0;
+}
+
+.operators,
+#decimal {
+    background-color:black;
+    color: white;
 }
