@@ -1,2 +1,2 @@
 # calculator
-My first proper JS project
+An online calculator with basic Arithmetic capabilities created using HTML, CSS and JavaScript.
